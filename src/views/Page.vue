@@ -1,14 +1,6 @@
 <template>
   <div>
-    <keep-alive>
-      <component :is="page" :data="page"></component>
-    </keep-alive>
-    <v-btn
-      color="primary"
-      @click="page === 'FormPage' ? (page = 'TablePage') : (page = 'FormPage')"
-    >
-      toggle pages
-    </v-btn>
+    <component :is="pageType" :data="pageData"></component>
   </div>
 </template>
 <script>
@@ -33,8 +25,38 @@ export default {
   },
   data() {
     return {
-      page: "FormPage",
+      pageType: "",
+      pageData: undefined,
     };
+  },
+  methods: {
+    fetchPageConfig() {
+      fetch(`/api/${this.$route.params.page}/uiconfig`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.initializePage(data);
+        });
+    },
+    initializePage(data) {
+      if (data.Type === "table") {
+        this.pageType = "TablePage";
+        this.pageData = data;
+      } else if (data.Type === "form") {
+        this.pageType = "FormPage";
+        this.pageData = data;
+      } else {
+        this.pageType = "";
+      }
+    },
+  },
+  watch: {
+    "$route.params.page": {
+      handler: function () {
+        this.fetchPageConfig();
+      },
+      deep: true,
+      immediate: true,
+    },
   },
 };
 </script>
