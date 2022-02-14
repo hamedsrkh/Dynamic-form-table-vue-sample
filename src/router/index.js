@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import PageNotFound from "../views/PageNotFound";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,8 @@ const routes = [
 
     component: () => import(/* webpackChunkName: "page" */ "../views/Page.vue"),
   },
+  { path: "*", component: PageNotFound }
+
 ];
 
 const router = new VueRouter({
