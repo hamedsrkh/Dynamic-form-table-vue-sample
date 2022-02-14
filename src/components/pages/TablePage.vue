@@ -26,7 +26,7 @@ export default {
       await fetch("/api" + `${this.data.fetchApi}`)
         .then((res) => res.json())
         .then((data) => {
-          this.rows = data[this.$route.params.page];
+          this.rows = Object.values(data);
         });
     },
   },

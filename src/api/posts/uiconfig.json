@@ -7,12 +7,14 @@
     {
       "Type": "text",
       "label": "title",
-      "name": "title"
+      "name": "title",
+      "required": true
     },
     {
       "Type": "text",
       "label": "description",
-      "name": "description"
+      "name": "description",
+      "required": true
     },
     {
       "Type": "text",
