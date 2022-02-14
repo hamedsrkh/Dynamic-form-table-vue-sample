@@ -1,0 +1,28 @@
+{
+  "Type": "form",
+  "submitApi": "/post/create",
+  "onSuccess": "post is created successfully",
+  "onError": "something went wrong",
+  "fields": [
+    {
+      "Type": "text",
+      "label": "title",
+      "name": "title"
+    },
+    {
+      "Type": "text",
+      "label": "description",
+      "name": "description"
+    },
+    {
+      "Type": "text",
+      "label": "author",
+      "name": "author"
+    },
+    {
+      "Type": "checkbox",
+      "label": "accepted",
+      "name": "is_accepted"
+    }
+  ]
+}

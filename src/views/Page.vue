@@ -36,7 +36,7 @@ export default {
   methods: {
     fetchPageConfig() {
       this.error = null;
-      fetch(`/api/${this.$route.params.page}/uiconfig`)
+      fetch(`/api/${this.$route.params.page.toLowerCase()}/uiconfig`)
         .then((res) => res.json())
         .then((data) => {
           this.initializePage(data);

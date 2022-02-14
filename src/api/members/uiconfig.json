@@ -1,0 +1,23 @@
+{
+  "Type": "form",
+  "submitApi": "/post/create",
+  "onSuccess": "post is created successfully",
+  "onError": "something went wrong",
+  "fields": [
+    {
+      "Type": "text",
+      "label": "name",
+      "name": "name"
+    },
+    {
+      "Type": "text",
+      "label": "job",
+      "name": "job"
+    },
+    {
+      "Type": "checkbox",
+      "label": "employed",
+      "name": "is_employed"
+    }
+  ]
+}
