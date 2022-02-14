@@ -1,7 +1,7 @@
 {
   "Type": "form",
-  "submitApi": "/post/create",
-  "onSuccess": "post is created successfully",
+  "submitApi": "/member/create",
+  "onSuccess": "member is created successfully",
   "onError": "something went wrong",
   "fields": [
     {

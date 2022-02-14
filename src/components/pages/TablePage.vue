@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Table</h3>
+    <h3>Table - {{$route.params.page}}</h3>
     <DataTable :headers="headers" :rows="rows" />
   </div>
 </template>

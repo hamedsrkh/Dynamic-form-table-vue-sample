@@ -1,4 +1,4 @@
-import { createServer, Model, Response } from "miragejs";
+import { createServer, Response } from "miragejs";
 
 const apiData = (path) => {
   try {
@@ -13,9 +13,9 @@ export function makeServer({ environment = "development" } = {}) {
   let server = createServer({
     environment,
 
-    models: {
-      user: Model,
-    },
+    // models: {
+    //   user: Model,
+    // },
 
     // seeds(server) {
     //   const userJson = apiData("users.json");
