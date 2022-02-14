@@ -32,12 +32,7 @@ export function makeServer({ environment = "development" } = {}) {
           Type: "table",
           fetchApi: "/userData",
           headers: ["first name", "last name", "full name", "phone number"],
-          values: [
-            "first_name",
-            "last_name",
-            "full_name",
-            "number",
-          ],
+          values: ["first_name", "last_name", "full_name", "number"],
         };
       });
       this.get("/userData", (schema) => {
@@ -73,6 +68,13 @@ export function makeServer({ environment = "development" } = {}) {
             },
           ],
         };
+      });
+      this.post("/post/create", (schema, request) => {
+        let attrs = JSON.parse(request.requestBody);
+        if (!attrs.title || !attrs.description) {
+          return new Response(400, {}, { message: "failed", attrs });
+        }
+        return new Response(200, {}, { message: "success", attrs});
       });
 
       this.get("/*", () => {
